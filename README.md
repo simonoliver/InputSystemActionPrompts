@@ -21,6 +21,9 @@ The package includes prompts for:
 * Xbox One Controller
 * Steam Deck
 
+The prompts are exported as Sprite Sheets from the [Figma file here](https://www.figma.com/community/file/1228728155074049847),
+which in turn are derived from the original great resource [Xelu's Free Controller Prompts](https://thoseawesomeguys.com/prompts/)
+
 **Warning** This is a very early release, so there's a lot that is missing, and probably a lot of bugs - feel free to
 send over any PRs or drop me a message on 🐤[Twitter](https://twitter.com/simonoliveruk) or
 🐘[Mastodon](https://mastodon.gamedev.place/@simonoliver).
