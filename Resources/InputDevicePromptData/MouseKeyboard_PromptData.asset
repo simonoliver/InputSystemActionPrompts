@@ -1,0 +1,181 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c4fe62e74444b90408a503a8ed1de522, type: 3}
+  m_Name: MouseKeyboard_PromptData
+  m_EditorClassIdentifier: 
+  DeviceTypes: 0000000001000000
+  DeviceNames:
+  - Keyboard
+  - Mouse
+  DeviceDescription: Mouse & Keyboard
+  SpriteAsset: {fileID: 11400000, guid: dd606f6811df44747a13c08d42efdf7b, type: 2}
+  ActionBindingPromptEntries:
+  - ActionBindingPath: <Keyboard>/0
+    PromptSprite: {fileID: -565983218, guid: b5c1abc09a9f699429c809896b58df72, type: 3}
+  - ActionBindingPath: <Keyboard>/1
+    PromptSprite: {fileID: -2075605450, guid: b5c1abc09a9f699429c809896b58df72, type: 3}
+  - ActionBindingPath: <Keyboard>/2
+    PromptSprite: {fileID: 1533274798, guid: b5c1abc09a9f699429c809896b58df72, type: 3}
+  - ActionBindingPath: <Keyboard>/3
+    PromptSprite: {fileID: 1166118545, guid: b5c1abc09a9f699429c809896b58df72, type: 3}
+  - ActionBindingPath: <Keyboard>/4
+    PromptSprite: {fileID: -1444976073, guid: b5c1abc09a9f699429c809896b58df72, type: 3}
+  - ActionBindingPath: <Keyboard>/5
+    PromptSprite: {fileID: -1272928128, guid: b5c1abc09a9f699429c809896b58df72, type: 3}
+  - ActionBindingPath: <Keyboard>/6
+    PromptSprite: {fileID: 1517352244, guid: b5c1abc09a9f699429c809896b58df72, type: 3}
+  - ActionBindingPath: <Keyboard>/7
+    PromptSprite: {fileID: 770608894, guid: b5c1abc09a9f699429c809896b58df72, type: 3}
+  - ActionBindingPath: <Keyboard>/8
+    PromptSprite: {fileID: -1214375081, guid: b5c1abc09a9f699429c809896b58df72, type: 3}
+  - ActionBindingPath: <Keyboard>/9
+    PromptSprite: {fileID: 1759079506, guid: b5c1abc09a9f699429c809896b58df72, type: 3}
+  - ActionBindingPath: <Keyboard>/a
+    PromptSprite: {fileID: -1206022415, guid: b5c1abc09a9f699429c809896b58df72, type: 3}
+  - ActionBindingPath: <Keyboard>/b
+    PromptSprite: {fileID: -1343760832, guid: b5c1abc09a9f699429c809896b58df72, type: 3}
+  - ActionBindingPath: <Keyboard>/c
+    PromptSprite: {fileID: -682152417, guid: b5c1abc09a9f699429c809896b58df72, type: 3}
+  - ActionBindingPath: <Keyboard>/d
+    PromptSprite: {fileID: -2108932728, guid: b5c1abc09a9f699429c809896b58df72, type: 3}
+  - ActionBindingPath: <Keyboard>/e
+    PromptSprite: {fileID: -929264005, guid: b5c1abc09a9f699429c809896b58df72, type: 3}
+  - ActionBindingPath: <Keyboard>/f
+    PromptSprite: {fileID: -864326533, guid: b5c1abc09a9f699429c809896b58df72, type: 3}
+  - ActionBindingPath: <Keyboard>/g
+    PromptSprite: {fileID: 1578800870, guid: b5c1abc09a9f699429c809896b58df72, type: 3}
+  - ActionBindingPath: <Keyboard>/h
+    PromptSprite: {fileID: 1138183401, guid: b5c1abc09a9f699429c809896b58df72, type: 3}
+  - ActionBindingPath: <Keyboard>/i
+    PromptSprite: {fileID: 1800182072, guid: b5c1abc09a9f699429c809896b58df72, type: 3}
+  - ActionBindingPath: <Keyboard>/j
+    PromptSprite: {fileID: 875008327, guid: b5c1abc09a9f699429c809896b58df72, type: 3}
+  - ActionBindingPath: <Keyboard>/k
+    PromptSprite: {fileID: 1192368556, guid: b5c1abc09a9f699429c809896b58df72, type: 3}
+  - ActionBindingPath: <Keyboard>/l
+    PromptSprite: {fileID: -1820222448, guid: b5c1abc09a9f699429c809896b58df72, type: 3}
+  - ActionBindingPath: <Keyboard>/m
+    PromptSprite: {fileID: -250574078, guid: b5c1abc09a9f699429c809896b58df72, type: 3}
+  - ActionBindingPath: <Keyboard>/n
+    PromptSprite: {fileID: 322525672, guid: b5c1abc09a9f699429c809896b58df72, type: 3}
+  - ActionBindingPath: <Keyboard>/o
+    PromptSprite: {fileID: 709448934, guid: b5c1abc09a9f699429c809896b58df72, type: 3}
+  - ActionBindingPath: <Keyboard>/p
+    PromptSprite: {fileID: -1597482162, guid: b5c1abc09a9f699429c809896b58df72, type: 3}
+  - ActionBindingPath: <Keyboard>/q
+    PromptSprite: {fileID: -1521197335, guid: b5c1abc09a9f699429c809896b58df72, type: 3}
+  - ActionBindingPath: <Keyboard>/r
+    PromptSprite: {fileID: -2131608156, guid: b5c1abc09a9f699429c809896b58df72, type: 3}
+  - ActionBindingPath: <Keyboard>/s
+    PromptSprite: {fileID: -726352277, guid: b5c1abc09a9f699429c809896b58df72, type: 3}
+  - ActionBindingPath: <Keyboard>/t
+    PromptSprite: {fileID: 464722343, guid: b5c1abc09a9f699429c809896b58df72, type: 3}
+  - ActionBindingPath: <Keyboard>/u
+    PromptSprite: {fileID: 1008060985, guid: b5c1abc09a9f699429c809896b58df72, type: 3}
+  - ActionBindingPath: <Keyboard>/v
+    PromptSprite: {fileID: 1265292450, guid: b5c1abc09a9f699429c809896b58df72, type: 3}
+  - ActionBindingPath: <Keyboard>/w
+    PromptSprite: {fileID: 1828843263, guid: b5c1abc09a9f699429c809896b58df72, type: 3}
+  - ActionBindingPath: <Keyboard>/x
+    PromptSprite: {fileID: 1813705892, guid: b5c1abc09a9f699429c809896b58df72, type: 3}
+  - ActionBindingPath: <Keyboard>/y
+    PromptSprite: {fileID: -357208706, guid: b5c1abc09a9f699429c809896b58df72, type: 3}
+  - ActionBindingPath: <Keyboard>/z
+    PromptSprite: {fileID: -876838417, guid: b5c1abc09a9f699429c809896b58df72, type: 3}
+  - ActionBindingPath: <Keyboard>/alt
+    PromptSprite: {fileID: -1972809648, guid: b5c1abc09a9f699429c809896b58df72, type: 3}
+  - ActionBindingPath: <Keyboard>/downArrow
+    PromptSprite: {fileID: 1896530796, guid: b5c1abc09a9f699429c809896b58df72, type: 3}
+  - ActionBindingPath: <Keyboard>/leftArrow
+    PromptSprite: {fileID: -1245878986, guid: b5c1abc09a9f699429c809896b58df72, type: 3}
+  - ActionBindingPath: <Keyboard>/rightArrow
+    PromptSprite: {fileID: -885169119, guid: b5c1abc09a9f699429c809896b58df72, type: 3}
+  - ActionBindingPath: <Keyboard>/upArrow
+    PromptSprite: {fileID: 266764642, guid: b5c1abc09a9f699429c809896b58df72, type: 3}
+  - ActionBindingPath: <Keyboard>/numpadMultiply
+    PromptSprite: {fileID: -213354661, guid: b5c1abc09a9f699429c809896b58df72, type: 3}
+  - ActionBindingPath: <Keyboard>/backspace
+    PromptSprite: {fileID: -122408485, guid: b5c1abc09a9f699429c809896b58df72, type: 3}
+  - ActionBindingPath: <Keyboard>/leftBracket
+    PromptSprite: {fileID: 1326247381, guid: b5c1abc09a9f699429c809896b58df72, type: 3}
+  - ActionBindingPath: <Keyboard>/rightBracket
+    PromptSprite: {fileID: 1077829635, guid: b5c1abc09a9f699429c809896b58df72, type: 3}
+  - ActionBindingPath: <Keyboard>/capsLock
+    PromptSprite: {fileID: -85097804, guid: b5c1abc09a9f699429c809896b58df72, type: 3}
+  - ActionBindingPath: 
+    PromptSprite: {fileID: -676145714, guid: b5c1abc09a9f699429c809896b58df72, type: 3}
+  - ActionBindingPath: <Keyboard>/ctrl
+    PromptSprite: {fileID: 257387088, guid: b5c1abc09a9f699429c809896b58df72, type: 3}
+  - ActionBindingPath: <Keyboard>/delete
+    PromptSprite: {fileID: 1605984260, guid: b5c1abc09a9f699429c809896b58df72, type: 3}
+  - ActionBindingPath: <Keyboard>/end
+    PromptSprite: {fileID: 282881663, guid: b5c1abc09a9f699429c809896b58df72, type: 3}
+  - ActionBindingPath: <Keyboard>/enter
+    PromptSprite: {fileID: -837170670, guid: b5c1abc09a9f699429c809896b58df72, type: 3}
+  - ActionBindingPath: <Keyboard>/escape
+    PromptSprite: {fileID: 484604706, guid: b5c1abc09a9f699429c809896b58df72, type: 3}
+  - ActionBindingPath: <Keyboard>/home
+    PromptSprite: {fileID: -103378313, guid: b5c1abc09a9f699429c809896b58df72, type: 3}
+  - ActionBindingPath: <Keyboard>/insert
+    PromptSprite: {fileID: -1528415547, guid: b5c1abc09a9f699429c809896b58df72, type: 3}
+  - ActionBindingPath: 
+    PromptSprite: {fileID: 508624091, guid: b5c1abc09a9f699429c809896b58df72, type: 3}
+  - ActionBindingPath: 
+    PromptSprite: {fileID: 288131055, guid: b5c1abc09a9f699429c809896b58df72, type: 3}
+  - ActionBindingPath: <Keyboard>/minus
+    PromptSprite: {fileID: -1546335909, guid: b5c1abc09a9f699429c809896b58df72, type: 3}
+  - ActionBindingPath: <Keyboard>/numLock
+    PromptSprite: {fileID: -372199344, guid: b5c1abc09a9f699429c809896b58df72, type: 3}
+  - ActionBindingPath: <Keyboard>/pageDown
+    PromptSprite: {fileID: -1895691866, guid: b5c1abc09a9f699429c809896b58df72, type: 3}
+  - ActionBindingPath: <Keyboard>/pageUp
+    PromptSprite: {fileID: 1159344395, guid: b5c1abc09a9f699429c809896b58df72, type: 3}
+  - ActionBindingPath: 
+    PromptSprite: {fileID: 415273177, guid: b5c1abc09a9f699429c809896b58df72, type: 3}
+  - ActionBindingPath: <Keyboard>/printScreen
+    PromptSprite: {fileID: -1292464888, guid: b5c1abc09a9f699429c809896b58df72, type: 3}
+  - ActionBindingPath: 
+    PromptSprite: {fileID: -1632993421, guid: b5c1abc09a9f699429c809896b58df72, type: 3}
+  - ActionBindingPath: 
+    PromptSprite: {fileID: 460877792, guid: b5c1abc09a9f699429c809896b58df72, type: 3}
+  - ActionBindingPath: <Keyboard>/semicolon
+    PromptSprite: {fileID: -60574681, guid: b5c1abc09a9f699429c809896b58df72, type: 3}
+  - ActionBindingPath: <Keyboard>/shift
+    PromptSprite: {fileID: -927634649, guid: b5c1abc09a9f699429c809896b58df72, type: 3}
+  - ActionBindingPath: <Keyboard>/backslash
+    PromptSprite: {fileID: 781899812, guid: b5c1abc09a9f699429c809896b58df72, type: 3}
+  - ActionBindingPath: <Keyboard>/space
+    PromptSprite: {fileID: -1707516993, guid: b5c1abc09a9f699429c809896b58df72, type: 3}
+  - ActionBindingPath: <Keyboard>/tab
+    PromptSprite: {fileID: -1727276284, guid: b5c1abc09a9f699429c809896b58df72, type: 3}
+  - ActionBindingPath: 
+    PromptSprite: {fileID: 1842526010, guid: b5c1abc09a9f699429c809896b58df72, type: 3}
+  - ActionBindingPath: 
+    PromptSprite: {fileID: -36299734, guid: b5c1abc09a9f699429c809896b58df72, type: 3}
+  - ActionBindingPath: 
+    PromptSprite: {fileID: -1586294742, guid: b5c1abc09a9f699429c809896b58df72, type: 3}
+  - ActionBindingPath: 
+    PromptSprite: {fileID: 2121031872, guid: b5c1abc09a9f699429c809896b58df72, type: 3}
+  - ActionBindingPath: 
+    PromptSprite: {fileID: 782013955, guid: b5c1abc09a9f699429c809896b58df72, type: 3}
+  - ActionBindingPath: <Mouse>/leftButton
+    PromptSprite: {fileID: -587933148, guid: b5c1abc09a9f699429c809896b58df72, type: 3}
+  - ActionBindingPath: <Mouse>/rightButton
+    PromptSprite: {fileID: 1970736822, guid: b5c1abc09a9f699429c809896b58df72, type: 3}
+  - ActionBindingPath: 
+    PromptSprite: {fileID: 30538136, guid: b5c1abc09a9f699429c809896b58df72, type: 3}
+  - ActionBindingPath: 
+    PromptSprite: {fileID: 2084837134, guid: b5c1abc09a9f699429c809896b58df72, type: 3}
+  - ActionBindingPath: 
+    PromptSprite: {fileID: -1815695679, guid: b5c1abc09a9f699429c809896b58df72, type: 3}
+  - ActionBindingPath: 
+    PromptSprite: {fileID: -533230085, guid: b5c1abc09a9f699429c809896b58df72, type: 3}

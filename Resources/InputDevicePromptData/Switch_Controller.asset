@@ -1,0 +1,60 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c4fe62e74444b90408a503a8ed1de522, type: 3}
+  m_Name: Switch_Controller
+  m_EditorClassIdentifier: 
+  DeviceTypes: 02000000
+  DeviceNames:
+  - SwitchProControllerHID
+  DeviceDescription: Switch Pro Controller or Joycons
+  SpriteAsset: {fileID: 11400000, guid: ff2fabd89f29c4e489f4994510f114f9, type: 2}
+  ActionBindingPromptEntries:
+  - ActionBindingPath: <Gamepad>/leftStick
+    PromptSprite: {fileID: 1917351442, guid: 79c5456d04dfed9459504d9067f5e3d0, type: 3}
+  - ActionBindingPath: <Gamepad>/rightStick
+    PromptSprite: {fileID: -1216749953, guid: 79c5456d04dfed9459504d9067f5e3d0, type: 3}
+  - ActionBindingPath: <Gamepad>/dpad
+    PromptSprite: {fileID: 1317135821, guid: 79c5456d04dfed9459504d9067f5e3d0, type: 3}
+  - ActionBindingPath: <Gamepad>/dpad/up
+    PromptSprite: {fileID: -1503505133, guid: 79c5456d04dfed9459504d9067f5e3d0, type: 3}
+  - ActionBindingPath: <Gamepad>/dpad/down
+    PromptSprite: {fileID: -1412395562, guid: 79c5456d04dfed9459504d9067f5e3d0, type: 3}
+  - ActionBindingPath: <Gamepad>/dpad/left
+    PromptSprite: {fileID: -559206366, guid: 79c5456d04dfed9459504d9067f5e3d0, type: 3}
+  - ActionBindingPath: <Gamepad>/dpad/right
+    PromptSprite: {fileID: -1216749953, guid: 79c5456d04dfed9459504d9067f5e3d0, type: 3}
+  - ActionBindingPath: <Gamepad>/buttonWest
+    PromptSprite: {fileID: -1675557852, guid: 79c5456d04dfed9459504d9067f5e3d0, type: 3}
+  - ActionBindingPath: <Gamepad>/buttonSouth
+    PromptSprite: {fileID: 1958770356, guid: 79c5456d04dfed9459504d9067f5e3d0, type: 3}
+  - ActionBindingPath: <Gamepad>/buttonEast
+    PromptSprite: {fileID: 109989612, guid: 79c5456d04dfed9459504d9067f5e3d0, type: 3}
+  - ActionBindingPath: <Gamepad>/buttonNorth
+    PromptSprite: {fileID: -1397497205, guid: 79c5456d04dfed9459504d9067f5e3d0, type: 3}
+  - ActionBindingPath: <Gamepad>/leftShoulder
+    PromptSprite: {fileID: 1224854545, guid: 79c5456d04dfed9459504d9067f5e3d0, type: 3}
+  - ActionBindingPath: <Gamepad>/rightShoulder
+    PromptSprite: {fileID: 970118933, guid: 79c5456d04dfed9459504d9067f5e3d0, type: 3}
+  - ActionBindingPath: <Gamepad>/leftStickPress
+    PromptSprite: {fileID: 1144665393, guid: 79c5456d04dfed9459504d9067f5e3d0, type: 3}
+  - ActionBindingPath: <Gamepad>/rightStickPress
+    PromptSprite: {fileID: 1350067950, guid: 79c5456d04dfed9459504d9067f5e3d0, type: 3}
+  - ActionBindingPath: <Gamepad>/leftTrigger
+    PromptSprite: {fileID: -1675536268, guid: 79c5456d04dfed9459504d9067f5e3d0, type: 3}
+  - ActionBindingPath: <Gamepad>/rightTrigger
+    PromptSprite: {fileID: -2054838611, guid: 79c5456d04dfed9459504d9067f5e3d0, type: 3}
+  - ActionBindingPath: <Gamepad>/start
+    PromptSprite: {fileID: -1600900863, guid: 79c5456d04dfed9459504d9067f5e3d0, type: 3}
+  - ActionBindingPath: <Gamepad>/select
+    PromptSprite: {fileID: -575141408, guid: 79c5456d04dfed9459504d9067f5e3d0, type: 3}
+  - ActionBindingPath: <Gamepad>/capture
+    PromptSprite: {fileID: 189524461, guid: 79c5456d04dfed9459504d9067f5e3d0, type: 3}

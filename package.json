@@ -1,0 +1,25 @@
+{
+  "name": "com.simonoliver.inputsystemactionprompts",
+  "displayName": "Input System Action Prompts",
+  "description": "Automatically add in prompt icons to TextMeshPro fields based on Unity's Input System",
+  "author": {
+    "name": "Simon Oliver",
+    "url": "https://www.simonoliver.com"
+  },
+  "keywords": [
+    "unity",
+    "prompts",
+    "ui",
+    "input"
+  ],
+  "license": "MIT",
+  "unity": "2021.3",
+  "unityRelease": "0f1",
+  "version": "1.0.0",
+  "type": "library",
+  "hideInEditor": false,
+  "dependencies": {
+    "com.unity.textmeshpro": "2.0.1",
+    "com.unity.inputsystem": "1.5.0"
+  }
+}

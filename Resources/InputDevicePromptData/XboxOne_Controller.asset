@@ -1,0 +1,59 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c4fe62e74444b90408a503a8ed1de522, type: 3}
+  m_Name: XboxOne_Controller
+  m_EditorClassIdentifier: 
+  DeviceTypes: 02000000
+  DeviceNames:
+  - XBoxOneController
+  DeviceDescription: Xbox One Controller (note may never show as class same as XBox
+    Series)
+  SpriteAsset: {fileID: 11400000, guid: 13c4c770d8f818b40b63232293b6da95, type: 2}
+  ActionBindingPromptEntries:
+  - ActionBindingPath: <Gamepad>/leftStick
+    PromptSprite: {fileID: 1117485294, guid: a8a8866d39b151e4b9b8e0b937effb09, type: 3}
+  - ActionBindingPath: <Gamepad>/rightStick
+    PromptSprite: {fileID: -2000625798, guid: a8a8866d39b151e4b9b8e0b937effb09, type: 3}
+  - ActionBindingPath: <Gamepad>/dpad
+    PromptSprite: {fileID: 1058849081, guid: a8a8866d39b151e4b9b8e0b937effb09, type: 3}
+  - ActionBindingPath: <Gamepad>/dpad/up
+    PromptSprite: {fileID: 662436875, guid: a8a8866d39b151e4b9b8e0b937effb09, type: 3}
+  - ActionBindingPath: <Gamepad>/dpad/down
+    PromptSprite: {fileID: 1204508788, guid: a8a8866d39b151e4b9b8e0b937effb09, type: 3}
+  - ActionBindingPath: <Gamepad>/dpad/left
+    PromptSprite: {fileID: -390638546, guid: a8a8866d39b151e4b9b8e0b937effb09, type: 3}
+  - ActionBindingPath: <Gamepad>/dpad/right
+    PromptSprite: {fileID: 2111829180, guid: a8a8866d39b151e4b9b8e0b937effb09, type: 3}
+  - ActionBindingPath: <Gamepad>/buttonWest
+    PromptSprite: {fileID: -210410899, guid: a8a8866d39b151e4b9b8e0b937effb09, type: 3}
+  - ActionBindingPath: <Gamepad>/buttonSouth
+    PromptSprite: {fileID: -866822669, guid: a8a8866d39b151e4b9b8e0b937effb09, type: 3}
+  - ActionBindingPath: <Gamepad>/buttonEast
+    PromptSprite: {fileID: -374024946, guid: a8a8866d39b151e4b9b8e0b937effb09, type: 3}
+  - ActionBindingPath: <Gamepad>/buttonNorth
+    PromptSprite: {fileID: -1290094614, guid: a8a8866d39b151e4b9b8e0b937effb09, type: 3}
+  - ActionBindingPath: <Gamepad>/leftShoulder
+    PromptSprite: {fileID: 25240219, guid: a8a8866d39b151e4b9b8e0b937effb09, type: 3}
+  - ActionBindingPath: <Gamepad>/rightShoulder
+    PromptSprite: {fileID: 1997001559, guid: a8a8866d39b151e4b9b8e0b937effb09, type: 3}
+  - ActionBindingPath: <Gamepad>/leftStickPress
+    PromptSprite: {fileID: -1521814583, guid: a8a8866d39b151e4b9b8e0b937effb09, type: 3}
+  - ActionBindingPath: <Gamepad>/rightStickPress
+    PromptSprite: {fileID: 85818788, guid: a8a8866d39b151e4b9b8e0b937effb09, type: 3}
+  - ActionBindingPath: <Gamepad>/leftTrigger
+    PromptSprite: {fileID: -1183194179, guid: a8a8866d39b151e4b9b8e0b937effb09, type: 3}
+  - ActionBindingPath: <Gamepad>/rightTrigger
+    PromptSprite: {fileID: -191208344, guid: a8a8866d39b151e4b9b8e0b937effb09, type: 3}
+  - ActionBindingPath: <Gamepad>/start
+    PromptSprite: {fileID: 737710991, guid: a8a8866d39b151e4b9b8e0b937effb09, type: 3}
+  - ActionBindingPath: <Gamepad>/select
+    PromptSprite: {fileID: 1583110188, guid: a8a8866d39b151e4b9b8e0b937effb09, type: 3}
