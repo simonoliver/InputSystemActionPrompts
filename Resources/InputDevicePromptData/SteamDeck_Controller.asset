@@ -15,7 +15,8 @@ MonoBehaviour:
   DeviceTypes: 02000000
   DeviceNames:
   - SteamController
-  DeviceDescription: Steam Deck Controller
+  - Gamepad
+  DeviceDescription: Steam Deck Controller (shows up as Gamepad on device)
   SpriteAsset: {fileID: 11400000, guid: 75415028bbdb3f7459eef792b9b307f9, type: 2}
   ActionBindingPromptEntries:
   - ActionBindingPath: <Gamepad>/leftStick
