@@ -32,6 +32,19 @@ namespace InputSystemActionPrompts
         
         public char OpenTag = '[';
         public char CloseTag = ']';
+        /// <summary>
+        /// Formatter used to add additional Rich Text formatting to the returned string from <see cref="InputDevicePromptSystem.InsertPromptSprites"/>
+        /// <example>
+        /// <![CDATA[
+        /// {0} = "<sprite="PS5_Prompts" sprite="ps5_button_cross">" (unformatted).
+        /// ]]><br/>
+        /// <![CDATA[
+        /// <size=200%>{0}</size> = "<size=200%><sprite="PS5_Prompts" sprite="ps5_button_cross"></size>" (formatted output double size).
+        /// ]]>
+        /// </example>
+        /// </summary>
+        [Tooltip("Formatter used to add additional Rich Text formatting to all text return from InputDevicePromptSystem.InsertPromptSprites and in turn PromptText. Example <size=200%>{0}</size>")]
+        public string PromptSpriteFormatter = "{0}";
         
         public const string SettingsDataFile = "InputSystemDevicePromptSettings";
         
