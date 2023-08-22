@@ -129,8 +129,10 @@ namespace InputSystemActionPrompts
             {
                 var replacementTagText = GetActionPathBindingTextSpriteTags(tag);
                 
-                //if promptSpriteFormatter is empty for some reason return the text as if formatter was {0} (normally)
-                var promptSpriteFormatter = s_Settings.PromptSpriteFormatter == "" ? "{0}" : s_Settings.PromptSpriteFormatter;
+                //if PromptSpriteFormatter is empty for some reason return the text as if formatter was {0} (normally)
+                var promptSpriteFormatter = s_Settings.PromptSpriteFormatter == "" ? "{SPRITE}" : s_Settings.PromptSpriteFormatter;
+                //PromptSpriteFormatter in settings uses {SPRITE} as a placeholder for the sprite, convert it to {0} for string.Format
+                promptSpriteFormatter = promptSpriteFormatter.Replace("{SPRITE}", "{0}");
                 replacementTagText = string.Format(promptSpriteFormatter, replacementTagText);
                 
                 replacedText = replacedText.Replace($"{s_Settings.OpenTag}{tag}{s_Settings.CloseTag}", replacementTagText);
