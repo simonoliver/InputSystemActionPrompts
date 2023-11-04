@@ -67,6 +67,11 @@ namespace InputSystemActionPrompts
         /// Event listener for button presses on input system
         /// </summary>
         private static IDisposable s_EventListener;
+
+        /// <summary>
+        /// The value that we will use to display our sprites in <see cref="InputSystemDevicePromptSettings.PromptSpriteFormatter"/>
+        /// </summary>
+        public const string PromptSpriteFormatterSpriteValue = "{SPRITE}";
         
         
         /// <summary>
@@ -80,6 +85,11 @@ namespace InputSystemActionPrompts
             {
                 Debug.LogWarning("InputSystemDevicePromptSettings missing");
                 return;
+            }
+
+            if (s_Settings.PromptSpriteFormatter.Contains(PromptSpriteFormatterSpriteValue))
+            {
+                Debug.LogError($"{nameof(InputSystemDevicePromptSettings.PromptSpriteFormatter)} must include {PromptSpriteFormatterSpriteValue} or no sprites will be shown.");
             }
             
             // We'll want to listen to buttons being pressed on any device
@@ -130,9 +140,9 @@ namespace InputSystemActionPrompts
                 var replacementTagText = GetActionPathBindingTextSpriteTags(tag);
                 
                 //if PromptSpriteFormatter is empty for some reason return the text as if formatter was {SPRITE} (normally)
-                var promptSpriteFormatter = s_Settings.PromptSpriteFormatter == "" ? "{SPRITE}" : s_Settings.PromptSpriteFormatter;
+                var promptSpriteFormatter = s_Settings.PromptSpriteFormatter == "" ? PromptSpriteFormatterSpriteValue : s_Settings.PromptSpriteFormatter;
                 //PromptSpriteFormatter in settings uses {SPRITE} as a placeholder for the sprite, convert it to {0} for string.Format
-                promptSpriteFormatter = promptSpriteFormatter.Replace("{SPRITE}", "{0}");
+                promptSpriteFormatter = promptSpriteFormatter.Replace( PromptSpriteFormatterSpriteValue, "{0}");
                 replacementTagText = string.Format(promptSpriteFormatter, replacementTagText);
                 
                 replacedText = replacedText.Replace($"{s_Settings.OpenTag}{tag}{s_Settings.CloseTag}", replacementTagText);
