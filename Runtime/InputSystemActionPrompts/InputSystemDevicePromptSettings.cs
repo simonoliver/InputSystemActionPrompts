@@ -44,8 +44,12 @@ namespace InputSystemActionPrompts
         /// </example>
         /// </summary>
         [Tooltip("Formatter used to add additional Rich Text formatting to all text return from InputDevicePromptSystem.InsertPromptSprites and in turn PromptText. Example <size=200%>{SPRITE}</size>")]
-        public string PromptSpriteFormatter = "{SPRITE}";
+        public string PromptSpriteFormatter = PromptSpriteFormatterSpritePlaceholder;
         
+        /// <summary>
+        /// Placeholder used to denote where a sprite should be inserted in the <see cref="InputSystemDevicePromptSettings.PromptSpriteFormatter"/>
+        /// </summary>
+        public const string PromptSpriteFormatterSpritePlaceholder = "{SPRITE}";
         public const string SettingsDataFile = "InputSystemDevicePromptSettings";
         
         public static InputSystemDevicePromptSettings GetSettings()
