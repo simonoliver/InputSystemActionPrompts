@@ -1,8 +1,9 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.InputSystem.LowLevel;
 using UnityEngine.InputSystem.Utilities;
 
 namespace InputSystemActionPrompts
@@ -64,12 +65,6 @@ namespace InputSystemActionPrompts
         public static Action<InputDevice> OnActiveDeviceChanged = delegate {  };
         
         /// <summary>
-        /// Event listener for button presses on input system
-        /// </summary>
-        private static IDisposable s_EventListener;
-        
-        
-        /// <summary>
         /// Initialises data structures and load settings, called on first use
         /// </summary>
         private static void Initialise()
@@ -82,9 +77,9 @@ namespace InputSystemActionPrompts
                 return;
             }
             
-            // We'll want to listen to buttons being pressed on any device
+            // We'll want to listen to buttons being pressed, mouse moved and gamepad sticks being moved on any device
             // in order to dynamically switch device prompts (From description in InputSystem.cs)
-            s_EventListener = InputSystem.onAnyButtonPress.Call(OnButtonPressed);
+            InputSystem.onEvent += OnInputSystemOnEventUpdateActiveDeviceHandler;
             
             // Listen to device change. If the active device is disconnected, switch to default
             InputSystem.onDeviceChange += OnDeviceChange;
@@ -378,17 +373,46 @@ namespace InputSystemActionPrompts
                 }
             }
         }
-        
+
+
         /// <summary>
-        /// Called when a button is pressed on any device
+        /// Handles updating our active device when input such as button presses, mouse movement and gamepad stick movement occurs
         /// </summary>
-        /// <param name="button"></param>
-        private static void OnButtonPressed(InputControl button)
+        private static void OnInputSystemOnEventUpdateActiveDeviceHandler(InputEventPtr inputEventPtr, InputDevice inputDevice)
         {
-            if (s_ActiveDevice==button.device) return;
-            s_ActiveDevice = button.device;
+            // Ignore anything that isn't a state event. These events signal that some input has changed
+            if (!inputEventPtr.IsA<StateEvent>() && !inputEventPtr.IsA<DeltaStateEvent>())
+            {
+                return;
+            }
+
+            //ignore input from on screen controls. See SetupInputControl() method in OnScreenControls.cs for more info
+            //on the usage we are filtering out here. This is necessary to ensure we don't switch to the on screen
+            //controls simulated device when the on screen button is pressed
+            if (inputDevice.usages.Any(x => x == "OnScreen"))
+            {
+                return;
+            }
+            
+            //only switch if our input device is equal to any of the enum values in InputDeviceType
+            //this ensures we don't try to switch for things like accelerometer
+            var isValidDevice = Enum.GetValues(typeof(InputDeviceType))
+                .Cast<InputDeviceType>()
+                .Any(x => DeviceMatchesType(inputDevice, x));
+            if (!isValidDevice)
+            {
+                return;
+            }
+
+            //active device is already set to this device, so ignore it
+            if (s_ActiveDevice == inputDevice)
+            {
+                return;
+            }
+
+            s_ActiveDevice = inputDevice;
             OnActiveDeviceChanged.Invoke(s_ActiveDevice);
         }
-        
+
     }
 }
