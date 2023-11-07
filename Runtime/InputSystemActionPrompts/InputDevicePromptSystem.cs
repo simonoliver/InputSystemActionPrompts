@@ -403,6 +403,17 @@ namespace InputSystemActionPrompts
             {
                 return;
             }
+            
+            //only change control scheme if gamepad sticks have moved past a certain threshold
+            if(DeviceMatchesType(inputDevice, InputDeviceType.GamePad))
+            {
+                var gamepad = (Gamepad)inputDevice;
+                if (gamepad.leftStick.ReadValue().magnitude < s_Settings.gamepadStickDeviceDetectionThreshold &&
+                    gamepad.rightStick.ReadValue().magnitude < s_Settings.gamepadStickDeviceDetectionThreshold)
+                {
+                    return;
+                }
+            }
 
             //active device is already set to this device, so ignore it
             if (s_ActiveDevice == inputDevice)

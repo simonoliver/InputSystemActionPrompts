@@ -1,6 +1,7 @@
-﻿using System.Collections.Generic;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.Serialization;
 
 namespace InputSystemActionPrompts
 {
@@ -32,6 +33,13 @@ namespace InputSystemActionPrompts
         
         public char OpenTag = '[';
         public char CloseTag = ']';
+        
+        /// <summary>
+        /// The amount a gamepad stick must be moved to be considered a device detection event. 
+        /// </summary>
+        [Range(0,1)]
+        [Tooltip("The amount a gamepad stick must be moved to be considered a device detection event.")]
+        public float gamepadStickDeviceDetectionThreshold = 0.1f;
         
         public const string SettingsDataFile = "InputSystemDevicePromptSettings";
         
