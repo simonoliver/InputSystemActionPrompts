@@ -68,7 +68,6 @@ namespace InputSystemActionPrompts
         /// </summary>
         private static IDisposable s_EventListener;
         
-        
         /// <summary>
         /// Initialises data structures and load settings, called on first use
         /// </summary>
@@ -80,6 +79,11 @@ namespace InputSystemActionPrompts
             {
                 Debug.LogWarning("InputSystemDevicePromptSettings missing");
                 return;
+            }
+
+            if (!s_Settings.PromptSpriteFormatter.Contains(InputSystemDevicePromptSettings.PromptSpriteFormatterSpritePlaceholder))
+            {
+                Debug.LogError($"{nameof(InputSystemDevicePromptSettings.PromptSpriteFormatter)} must include {InputSystemDevicePromptSettings.PromptSpriteFormatterSpritePlaceholder} or no sprites will be shown.");
             }
             
             // We'll want to listen to buttons being pressed on any device
@@ -128,6 +132,13 @@ namespace InputSystemActionPrompts
             foreach (var tag in foundTags)
             {
                 var replacementTagText = GetActionPathBindingTextSpriteTags(tag);
+                
+                //if PromptSpriteFormatter is empty for some reason return the text as if formatter was {SPRITE} (normally)
+                var promptSpriteFormatter = s_Settings.PromptSpriteFormatter == "" ? InputSystemDevicePromptSettings.PromptSpriteFormatterSpritePlaceholder : s_Settings.PromptSpriteFormatter;
+                //PromptSpriteFormatter in settings uses {SPRITE} as a placeholder for the sprite, convert it to {0} for string.Format
+                promptSpriteFormatter = promptSpriteFormatter.Replace( InputSystemDevicePromptSettings.PromptSpriteFormatterSpritePlaceholder, "{0}");
+                replacementTagText = string.Format(promptSpriteFormatter, replacementTagText);
+                
                 replacedText = replacedText.Replace($"{s_Settings.OpenTag}{tag}{s_Settings.CloseTag}", replacementTagText);
             }
 

@@ -63,6 +63,16 @@ your text (for example after retrieving localisation key). For example ```text=I
 
 Or you can use GetActionPathBindingSprite(string inputTag) to get the first matching sprite, eg ```sprite=InputDevicePromptSystem.GetActionPathBindingSprite("Player/Jump")```
 
+## Settings
+
+### PromptSpriteFormatter
+
+Formatter used to add additional [Rich Text formatting](https://docs.unity3d.com/Packages/com.unity.textmeshpro@3.2/manual/RichText.html) to the returned string from `InputDevicePromptSystem.InsertPromptSprites` and in turn `PromptText`.
+
+By default `PromptSpriteFormatter` is set to `{SPRITE}` which will return the prompt sprite unedited (e.g. `<sprite="PS5_Prompts" sprite="ps5_button_cross">`).
+
+To add additional formatting, you might edit `{SPRITE}` as follows `<size=200%><voffset=-3px>{SPRITE}</voffset></size>`. This will double the sprite size and modify it's vertical position (e.g. `<size=200%><voffset=-3px><sprite="PS5_Prompts" sprite="ps5_button_cross"></voffset></size>`).
+
 ## Adding your own prompts
 
 You can add new device prompts in your project by creating a new InputDevicePromptDataFile

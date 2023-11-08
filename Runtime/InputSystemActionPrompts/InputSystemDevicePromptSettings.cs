@@ -1,4 +1,4 @@
-﻿using System.Collections.Generic;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -32,7 +32,24 @@ namespace InputSystemActionPrompts
         
         public char OpenTag = '[';
         public char CloseTag = ']';
+        /// <summary>
+        /// Formatter used to add additional Rich Text formatting to the returned string from <see cref="InputDevicePromptSystem.InsertPromptSprites"/>
+        /// <example>
+        /// <![CDATA[
+        /// {SPRITE} = "<sprite="PS5_Prompts" sprite="ps5_button_cross">" (unformatted).
+        /// ]]><br/>
+        /// <![CDATA[
+        /// <size=200%>{SPRITE}</size> = "<size=200%><sprite="PS5_Prompts" sprite="ps5_button_cross"></size>" (formatted output double size).
+        /// ]]>
+        /// </example>
+        /// </summary>
+        [Tooltip("Formatter used to add additional Rich Text formatting to all text return from InputDevicePromptSystem.InsertPromptSprites and in turn PromptText. Example <size=200%>{SPRITE}</size>")]
+        public string PromptSpriteFormatter = PromptSpriteFormatterSpritePlaceholder;
         
+        /// <summary>
+        /// Placeholder used to denote where a sprite should be inserted in the <see cref="InputSystemDevicePromptSettings.PromptSpriteFormatter"/>
+        /// </summary>
+        public const string PromptSpriteFormatterSpritePlaceholder = "{SPRITE}";
         public const string SettingsDataFile = "InputSystemDevicePromptSettings";
         
         public static InputSystemDevicePromptSettings GetSettings()
