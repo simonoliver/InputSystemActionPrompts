@@ -36,12 +36,12 @@ namespace InputSystemActionPrompts
         /// <summary>
         /// Map of action paths (eg "Player/Move" to binding map entries eg "Gamepad/leftStick")
         /// </summary>
-        private static Dictionary<string,List<ActionBindingMapEntry>> s_ActionBindingMap = new();
+        private static Dictionary<string,List<ActionBindingMapEntry>> s_ActionBindingMap = new Dictionary<string, List<ActionBindingMapEntry>>();
         
         /// <summary>
         /// Map of device names (eg "DualShockGamepadHID") to device prompt data (list of action bindings and sprites)
         /// </summary>
-        private static Dictionary<string,InputDevicePromptData> s_DeviceDataBindingMap = new();
+        private static Dictionary<string,InputDevicePromptData> s_DeviceDataBindingMap = new Dictionary<string, InputDevicePromptData>();
         
         /// <summary>
         /// Currently initialised
@@ -109,7 +109,7 @@ namespace InputSystemActionPrompts
             // If the active device has been disconnected, revert to default device
             if (device != s_ActiveDevice) return;
             
-            if (change is InputDeviceChange.Disconnected or InputDeviceChange.Removed)
+            if ((change == InputDeviceChange.Disconnected) || (change == InputDeviceChange.Removed))
             {
                 FindDefaultDevice();
                 // Notify change

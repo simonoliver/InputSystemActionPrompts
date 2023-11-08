@@ -34,7 +34,7 @@ namespace InputSystemActionPrompts
       /// <summary>
       /// The types of devices supported by this asset (can be multiple eg mouse/keyboard)
       /// </summary>
-      public List<InputDeviceType> DeviceTypes=new() ;
+      public List<InputDeviceType> DeviceTypes = new List<InputDeviceType>();
       /// <summary>
       /// Device names that can be used to identify this device
       /// </summary>
