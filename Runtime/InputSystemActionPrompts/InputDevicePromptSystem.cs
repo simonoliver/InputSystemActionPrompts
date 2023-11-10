@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.InputSystem.Controls;
 using UnityEngine.InputSystem.LowLevel;
 using UnityEngine.InputSystem.Utilities;
 
@@ -407,9 +408,16 @@ namespace InputSystemActionPrompts
             //only change control scheme if gamepad sticks have moved past a certain threshold
             if(DeviceMatchesType(inputDevice, InputDeviceType.GamePad))
             {
-                var gamepad = (Gamepad)inputDevice;
-                if (gamepad.leftStick.ReadValue().magnitude < s_Settings.gamepadStickDeviceDetectionThreshold &&
-                    gamepad.rightStick.ReadValue().magnitude < s_Settings.gamepadStickDeviceDetectionThreshold)
+                //ensure we only evaluate thresholds when sticks are the only controls that have changed
+                //otherwise we can experience a bug where a button could be pressed but we don't
+                //change to gamepad control schemes because stick magnitudes are below the threshold
+                var changedControls = inputEventPtr.EnumerateChangedControls();
+                if (changedControls.All(x =>
+                        //stick changes come through via their broken down AxisControl counterparts (x & y)
+                        //so to ensure we have a stick when we have an AxisControl check the parent control
+                        //for now this seems to work well, but could probably use some battle testing with other gamepads
+                        x.parent is StickControl stickControl &&
+                        stickControl.ReadValue().magnitude < s_Settings.gamepadStickDeviceDetectionThreshold))
                 {
                     return;
                 }
