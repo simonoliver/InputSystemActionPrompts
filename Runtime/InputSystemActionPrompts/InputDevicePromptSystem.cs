@@ -5,7 +5,7 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.InputSystem.Controls;
 using UnityEngine.InputSystem.LowLevel;
-using UnityEngine.InputSystem.Utilities;
+using Object = UnityEngine.Object;
 
 namespace InputSystemActionPrompts
 {
@@ -34,7 +34,6 @@ namespace InputSystemActionPrompts
     
     public static class InputDevicePromptSystem
     {
-        
         /// <summary>
         /// Map of action paths (eg "Player/Move" to binding map entries eg "Gamepad/leftStick")
         /// </summary>
@@ -87,8 +86,22 @@ namespace InputSystemActionPrompts
             
             BuildBindingMaps();
             FindDefaultDevice();
-
+            
+            // Create a helper object that will allow us listen to monobehaviour events
+            var inputDevicePromptSystemHelper = new GameObject("Input Device Prompt System Helper");
+            Object.DontDestroyOnLoad(inputDevicePromptSystemHelper);
+            inputDevicePromptSystemHelper.AddComponent<InputDevicePromptSystemHelper>();
+            
             s_Initialised = true;
+        }
+
+        /// <summary>
+        /// Terminates our InputDevicePromptSystem to ensure events and other objects don't leak
+        /// </summary>
+        public static void Terminate()
+        {
+            InputSystem.onEvent -= OnInputSystemOnEventUpdateActiveDeviceHandler;
+            InputSystem.onDeviceChange -= OnDeviceChange;
         }
 
         /// <summary>
