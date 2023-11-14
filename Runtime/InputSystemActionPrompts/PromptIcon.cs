@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.UI;
 
@@ -16,6 +16,8 @@ namespace InputSystemActionPrompts
         /// The image to apply the prompt sprite to
         /// </summary>
         private Image m_Image;
+
+        [SerializeField] private bool _setNativeSize = true;
         
         void Start()
         {
@@ -47,9 +49,11 @@ namespace InputSystemActionPrompts
         private void RefreshIcon()
         {
             var sourceSprite=InputDevicePromptSystem.GetActionPathBindingSprite(m_Action);
-            m_Image.sprite = sourceSprite;
             if (sourceSprite == null) return;
-            m_Image.SetNativeSize();
+            m_Image.sprite = sourceSprite;
+
+            if (_setNativeSize)
+                m_Image.SetNativeSize();
         }
     }
 }
