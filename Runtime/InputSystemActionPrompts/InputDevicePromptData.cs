@@ -28,6 +28,7 @@ namespace InputSystemActionPrompts
 
     /// <summary>
     /// Custom sprite entry for when you want to use different image based on the device (e.g. for the controller Image)
+    /// </summary>
     [Serializable]
     public class DeviceSpriteEntry
     {
