@@ -159,6 +159,30 @@ namespace InputSystemActionPrompts
         }
 
         /// <summary>
+        /// Gets the current active device matching sprite in DeviceSpriteEntries list for the given sprite name
+        /// </summary>
+        /// <param name="spriteName"></param>
+        /// <returns></returns>
+
+        public static Sprite GetDeviceSprite(string spriteName)
+        {
+            if (!s_Initialised) Initialise();
+            if (s_ActiveDevice == null) return null;
+            var validDevice = s_DeviceDataBindingMap[s_ActiveDevice.name];
+
+            var matchingSprite = validDevice.DeviceSpriteEntries.FirstOrDefault((sprite) =>
+                           String.Equals(sprite.SpriteName, spriteName,
+                                              StringComparison.CurrentCultureIgnoreCase));
+
+            if (matchingSprite != null)
+            {
+                return matchingSprite.Sprite;
+            }
+
+            return null;
+        }
+
+        /// <summary>
         /// Creates a TextMeshPro formatted string for all matching sprites for a given tag
         /// Supports composite tags, eg WASD by returning all matches for active device (observing order)
         /// </summary>
