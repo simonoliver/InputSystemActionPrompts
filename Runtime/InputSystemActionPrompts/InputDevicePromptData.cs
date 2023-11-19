@@ -24,6 +24,17 @@ namespace InputSystemActionPrompts
       /// </summary>
       public Sprite PromptSprite;
    }
+
+
+    /// <summary>
+    /// Custom sprite entry for when you want to use different image based on the device (e.g. for the controller Image)
+    /// </summary>
+    [Serializable]
+    public class DeviceSpriteEntry
+    {
+        public string SpriteName;
+        public Sprite Sprite;
+    }
    
    /// <summary>
    /// The data for a single input device such as PlayStation 4 Controller
@@ -51,5 +62,9 @@ namespace InputSystemActionPrompts
       /// A list of all the action bindings and their corresponding prompt icons
       /// </summary>
       public List<ActionBindingPromptEntry> ActionBindingPromptEntries;
+      /// <summary>
+      /// A list of optional custom sprites and their corresponding names
+      /// </summary>
+      public List<DeviceSpriteEntry> DeviceSpriteEntries;
    }
 }

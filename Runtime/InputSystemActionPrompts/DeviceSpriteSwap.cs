@@ -5,55 +5,57 @@ using UnityEngine.UI;
 namespace InputSystemActionPrompts
 {
     [RequireComponent(typeof(Image))]
-    public class PromptIcon : MonoBehaviour
+    public class DeviceSpriteSwap : MonoBehaviour
     {
-        /// <summary>
-        /// This should be the full path, including binding map and action, eg "Player/Move"
-        /// </summary>
-        [SerializeField] private string m_Action = "Player/Move";
-        
+
         /// <summary>
         /// The image to apply the prompt sprite to
         /// </summary>
         private Image m_Image;
 
+        /// <summary>
+        /// The name of the custom sprite to use
+        /// </summary>
+        [SerializeField] private string customSpriteName = "";
+
         [SerializeField] private bool _setNativeSize = true;
-        
+
         void Start()
         {
             m_Image = GetComponent<Image>();
             if (m_Image == null) return;
-            RefreshIcon();
+            RefreshSprite();
             // Listen to device changing
-            InputDevicePromptSystem.OnActiveDeviceChanged+= DeviceChanged;
+            InputDevicePromptSystem.OnActiveDeviceChanged += DeviceChanged;
         }
-        
+
         private void OnDestroy()
         {
             // Remove listener
-            InputDevicePromptSystem.OnActiveDeviceChanged-= DeviceChanged;
+            InputDevicePromptSystem.OnActiveDeviceChanged -= DeviceChanged;
         }
-        
+
         /// <summary>
         /// Called when active input device changed
         /// </summary>
         /// <param name="obj"></param>
         private void DeviceChanged(InputDevice device)
         {
-            RefreshIcon();
+            RefreshSprite();
         }
 
         /// <summary>
         /// Sets the icon for the current action
         /// </summary>
-        private void RefreshIcon()
+        private void RefreshSprite()
         {
-            var sourceSprite=InputDevicePromptSystem.GetActionPathBindingSprite(m_Action);
+            var sourceSprite = InputDevicePromptSystem.GetDeviceSprite(customSpriteName);
             if (sourceSprite == null) return;
-            m_Image.sprite = sourceSprite;
 
+            m_Image.sprite = sourceSprite;
             if (_setNativeSize)
                 m_Image.SetNativeSize();
         }
+
     }
 }
