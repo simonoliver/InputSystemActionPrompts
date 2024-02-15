@@ -47,6 +47,15 @@ namespace InputSystemActionPrompts
         public string PromptSpriteFormatter = PromptSpriteFormatterSpritePlaceholder;
         
         /// <summary>
+        /// Tags used for custom rich text formatting. 
+        /// </summary>
+        /// <remarks>
+        /// This field can be utilized to define additional rich text tags that can be used in conjunction with the PromptSpriteFormatter.
+        /// </remarks>
+        [Tooltip("Additional rich text tags to be used in conjunction with PromptSpriteFormatter.")]
+        public string RichTextTags = "";
+        
+        /// <summary>
         /// Placeholder used to denote where a sprite should be inserted in the <see cref="InputSystemDevicePromptSettings.PromptSpriteFormatter"/>
         /// </summary>
         public const string PromptSpriteFormatterSpritePlaceholder = "{SPRITE}";

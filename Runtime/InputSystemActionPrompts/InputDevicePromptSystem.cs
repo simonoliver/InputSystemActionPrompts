@@ -215,7 +215,7 @@ namespace InputSystemActionPrompts
             var outputText = string.Empty;
             foreach (var prompt in matchingPrompt)
             {
-                outputText += $"<sprite=\"{validDevice.SpriteAsset.name}\" name=\"{prompt.PromptSprite.name}\">";
+                outputText += $"<sprite=\"{validDevice.SpriteAsset.name}\" name=\"{prompt.PromptSprite.name}\" {s_Settings.RichTextTags}>";
             }
             return outputText;
         }
