@@ -67,13 +67,39 @@ namespace InputSystemActionPrompts
         /// Event listener for button presses on input system
         /// </summary>
         private static IDisposable s_EventListener;
+
+        private static InputDevicePromptData s_PlatformDeviceOverride;
+
+        public static bool GetPlatformDeviceOverride(out InputDevicePromptData inputDevice)
+        {
+            if (s_PlatformDeviceOverride != null)
+            {
+                inputDevice = s_PlatformDeviceOverride;
+                return true;
+            }
+
+            // get the current platform
+            var platform = Application.platform;
+            // check if we have a platform override
+            foreach (var platformOverride in s_Settings.RuntimePlatformsOverride)
+            {
+                if (platformOverride.Platform == platform) { 
+                    inputDevice = platformOverride.DevicePromptData;
+                    return true;
+                }
+            }
+
+            inputDevice = null;
+            return false;
+        }
         
         /// <summary>
         /// Initialises data structures and load settings, called on first use
         /// </summary>
         private static void Initialise()
         {
-            s_Settings=InputSystemDevicePromptSettings.GetSettings();
+            Debug.Log("Initialising InputDevicePromptSystem");
+            s_Settings =InputSystemDevicePromptSettings.GetSettings();
             
             if (s_Settings == null)
             {
@@ -95,6 +121,8 @@ namespace InputSystemActionPrompts
             
             BuildBindingMaps();
             FindDefaultDevice();
+
+            GetPlatformDeviceOverride(out s_PlatformDeviceOverride);
 
             s_Initialised = true;
         }
@@ -167,8 +195,31 @@ namespace InputSystemActionPrompts
         public static Sprite GetDeviceSprite(string spriteName)
         {
             if (!s_Initialised) Initialise();
-            if (s_ActiveDevice == null) return null;
-            var validDevice = s_DeviceDataBindingMap[s_ActiveDevice.name];
+
+            InputDevicePromptData validDevice;
+
+            if (s_PlatformDeviceOverride != null)
+            {
+                validDevice = s_PlatformDeviceOverride;
+            }
+            else
+            {
+                if (s_ActiveDevice == null) return null;
+
+                var activeDeviceName = s_ActiveDevice.name;
+
+                if (!s_DeviceDataBindingMap.ContainsKey(activeDeviceName))
+                {
+                    Debug.LogError($"MISSING_DEVICE_ENTRIES '{activeDeviceName}'");
+                    return null;
+                }
+
+                //// search for key in dictionary s_DeviceDataBindingMap that starts with activeDeviceName
+                //var matchingDevice = s_DeviceDataBindingMap.FirstOrDefault(x => x.Key.StartsWith(activeDeviceName)).Value;
+
+                validDevice = s_DeviceDataBindingMap[activeDeviceName];
+            }
+            
 
             var matchingSprite = validDevice.DeviceSpriteEntries.FirstOrDefault((sprite) =>
                            String.Equals(sprite.SpriteName, spriteName,
@@ -190,12 +241,15 @@ namespace InputSystemActionPrompts
         /// <returns></returns>
         private static string GetActionPathBindingTextSpriteTags(string inputTag)
         {
-            if (s_ActiveDevice==null) return "NO_ACTIVE_DEVICE";
-            var activeDeviceName = s_ActiveDevice.name;
-            
-            if (!s_DeviceDataBindingMap.ContainsKey(activeDeviceName))
+            if (s_PlatformDeviceOverride == null) // not platform override
             {
-                return $"MISSING_DEVICE_ENTRIES '{activeDeviceName}'";
+                if (s_ActiveDevice == null) return "NO_ACTIVE_DEVICE";
+                var activeDeviceName = s_ActiveDevice.name;
+
+                if (!s_DeviceDataBindingMap.ContainsKey(activeDeviceName))
+                {
+                    return $"MISSING_DEVICE_ENTRIES '{activeDeviceName}'";
+                }
             }
 
             var lowerCaseTag = inputTag.ToLower();
@@ -227,14 +281,24 @@ namespace InputSystemActionPrompts
         /// <returns></returns>
         private static (InputDevicePromptData,List<ActionBindingPromptEntry>) GetActionPathBindingPromptEntries(string inputTag)
         {
-            if (s_ActiveDevice == null) return (null,null);
-            if (!s_DeviceDataBindingMap.ContainsKey(s_ActiveDevice.name)) return (null,null);
-            var lowerCaseTag = inputTag.ToLower();
+            InputDevicePromptData validDevice;
 
-            if (!s_ActionBindingMap.ContainsKey(lowerCaseTag)) return (null,null);
-            
+            var lowerCaseTag = inputTag.ToLower();
+            if (!s_ActionBindingMap.ContainsKey(lowerCaseTag)) return (null, null);
+
+            if (s_PlatformDeviceOverride != null)
+            {
+                validDevice = s_PlatformDeviceOverride;
+            }
+            else
+            {
+                if (s_ActiveDevice == null) return (null, null);
+                if (!s_DeviceDataBindingMap.ContainsKey(s_ActiveDevice.name)) return (null, null);
+
+                validDevice = s_DeviceDataBindingMap[s_ActiveDevice.name];
+            }
+
             var validEntries = new List<ActionBindingPromptEntry>();
-            var validDevice = s_DeviceDataBindingMap[s_ActiveDevice.name];
             var actionBindings=s_ActionBindingMap[lowerCaseTag];
             
             foreach (var actionBinding in actionBindings)
@@ -248,6 +312,7 @@ namespace InputSystemActionPrompts
                             StringComparison.CurrentCultureIgnoreCase));
                     if (matchingPrompt != null)
                     {
+                        //Debug.Log($"Found matching prompt {matchingPrompt.ActionBindingPath} for {inputTag}");
                         validEntries.Add(matchingPrompt);
                     }
                 }
