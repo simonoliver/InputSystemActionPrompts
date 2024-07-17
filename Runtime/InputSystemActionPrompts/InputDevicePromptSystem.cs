@@ -444,7 +444,7 @@ namespace InputSystemActionPrompts
                         //Debug.Log($"Binding {bindingPathLower} to path {binding.path}");
                         var entry = new ActionBindingMapEntry
                         {
-                            BindingPath = binding.path,
+                            BindingPath = binding.effectivePath,
                             IsComposite = binding.isComposite,
                             IsPartOfComposite = binding.isPartOfComposite
                         };
