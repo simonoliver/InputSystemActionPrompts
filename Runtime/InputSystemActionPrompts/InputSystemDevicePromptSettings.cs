@@ -71,5 +71,16 @@ namespace InputSystemActionPrompts
             return settings;
         }
 
+        [Space]
+        [Tooltip("Optional overrides for platform specific device prompts. Instead of being dynamic, on these platform will be used only the specified input settings.")]
+        public List<PlatformInputOverride> RuntimePlatformsOverride = new List<PlatformInputOverride>();
+
+        [System.Serializable]
+        public class PlatformInputOverride
+        {
+            public RuntimePlatform Platform;
+            public InputDevicePromptData DevicePromptData;
+        }
+
     }
 }
