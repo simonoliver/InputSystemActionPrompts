@@ -99,5 +99,6 @@ file will choose which device to prioritise before any button is pressed. If the
 to find a default device again.
 
 
+## Notes on contributing
 
-
+Please see the [CONTRIBUTING](CONTRIBUTING.md) file for more information on how to contribute to this project.
