@@ -13,9 +13,9 @@ namespace InputSystemActionPrompts.Editor
         public static void CreateSettings()
         {
             var settings = ScriptableObject.CreateInstance<InputSystemDevicePromptSettings>();
-            // Initialise with all input action assets found in project and packages
+            // Initialize with all input action assets found in project and packages
             settings.InputActionAssets = GetAllInstances<InputActionAsset>().ToList();
-            // Initialise with all prompt assets found in project and packages
+            // Initialize with all prompt assets found in project and packages
             settings.DevicePromptAssets = GetAllInstances<InputDevicePromptData>().ToList();
             settings.DefaultDevicePriority = new List<InputDeviceType>
             {

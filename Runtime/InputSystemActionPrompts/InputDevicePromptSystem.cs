@@ -44,9 +44,9 @@ namespace InputSystemActionPrompts
         private static Dictionary<string,InputDevicePromptData> s_DeviceDataBindingMap = new Dictionary<string, InputDevicePromptData>();
         
         /// <summary>
-        /// Currently initialised
+        /// Currently initialized
         /// </summary>
-        private static bool s_Initialised = false;
+        private static bool s_Initialized = false;
         
         /// <summary>
         /// The settings file
@@ -94,9 +94,9 @@ namespace InputSystemActionPrompts
         }
         
         /// <summary>
-        /// Initialises data structures and load settings, called on first use
+        /// Initializes data structures and load settings, called on first use
         /// </summary>
-        private static void Initialise()
+        private static void Initialize()
         {
             Debug.Log("Initialising InputDevicePromptSystem");
             s_Settings =InputSystemDevicePromptSettings.GetSettings();
@@ -124,7 +124,7 @@ namespace InputSystemActionPrompts
 
             GetPlatformDeviceOverride(out s_PlatformDeviceOverride);
 
-            s_Initialised = true;
+            s_Initialized = true;
         }
 
         /// <summary>
@@ -152,8 +152,8 @@ namespace InputSystemActionPrompts
         /// <returns></returns>
         public static string InsertPromptSprites(string inputText)
         {
-            if (!s_Initialised) Initialise();
-            if (!s_Initialised) return "InputSystemDevicePrompt Settings missing - please create using menu item 'Window/Input System Device Prompts/Create Settings'";
+            if (!s_Initialized) Initialize();
+            if (!s_Initialized) return "InputSystemDevicePrompt Settings missing - please create using menu item 'Window/Input System Device Prompts/Create Settings'";
 
             var foundTags = GetTagList(inputText);
             var replacedText = inputText;
@@ -181,7 +181,7 @@ namespace InputSystemActionPrompts
         /// <returns></returns>
         public static Sprite GetActionPathBindingSprite(string inputTag)
         {
-            if (!s_Initialised) Initialise();
+            if (!s_Initialized) Initialize();
             var (_, matchingPrompt) = GetActionPathBindingPromptEntries(inputTag);
             return matchingPrompt != null && matchingPrompt.Count>0 ? matchingPrompt[0].PromptSprite : null;
         }
@@ -194,7 +194,7 @@ namespace InputSystemActionPrompts
 
         public static Sprite GetDeviceSprite(string spriteName)
         {
-            if (!s_Initialised) Initialise();
+            if (!s_Initialized) Initialize();
 
             InputDevicePromptData validDevice;
 
