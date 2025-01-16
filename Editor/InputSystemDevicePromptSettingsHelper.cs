@@ -25,11 +25,6 @@ namespace InputSystemActionPrompts.Editor
             };
             settings.OpenTag = '[';
             settings.CloseTag = ']';
-            
-            // Ensure a Resources folder exists
-            if (!AssetDatabase.IsValidFolder("Assets/Resources")) 
-                AssetDatabase.CreateFolder("Assets", "Resources");
-            
             AssetDatabase.CreateAsset(settings, $"Assets/Resources/{InputSystemDevicePromptSettings.SettingsDataFile}.asset");
             AssetDatabase.SaveAssets();
         }
