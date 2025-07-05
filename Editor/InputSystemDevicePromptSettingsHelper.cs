@@ -12,6 +12,14 @@ namespace InputSystemActionPrompts.Editor
         [MenuItem("Window/Input System Action Prompts/Create Settings")]
         public static void CreateSettings()
         {
+            // Ensure the Resources folder exists
+            string resourcesPath = "Assets/Resources";
+            if (!AssetDatabase.IsValidFolder(resourcesPath))
+            {
+                System.IO.Directory.CreateDirectory(resourcesPath);
+                AssetDatabase.Refresh();
+            }
+            
             var settings = ScriptableObject.CreateInstance<InputSystemDevicePromptSettings>();
             // Initialise with all input action assets found in project and packages
             settings.InputActionAssets = GetAllInstances<InputActionAsset>().ToList();
@@ -25,7 +33,8 @@ namespace InputSystemActionPrompts.Editor
             };
             settings.OpenTag = '[';
             settings.CloseTag = ']';
-            AssetDatabase.CreateAsset(settings, $"Assets/Resources/{InputSystemDevicePromptSettings.SettingsDataFile}.asset");
+            string assetPath = $"{resourcesPath}/{InputSystemDevicePromptSettings.SettingsDataFile}.asset";
+            AssetDatabase.CreateAsset(settings, assetPath);
             AssetDatabase.SaveAssets();
         }
         
